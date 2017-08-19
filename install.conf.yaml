@@ -7,3 +7,6 @@
 - link:
     ~/.config/fish/config.fish:
     ~/.hyper.js:
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
