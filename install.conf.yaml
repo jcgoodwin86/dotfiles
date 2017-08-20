@@ -8,6 +8,7 @@
     ~/.config/fish/config.fish:
     ~/.hyper.js:
     ~/.config/nvim/init.vim:
+    ~/.eslintrc:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

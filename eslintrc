@@ -1,0 +1,22 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+  },
+
+  "settings": {
+    "ecmascript": 6,
+    "jsx": true,
+  },
+
+  "extends": "airbnb",
+
+  "rules": {
+    "no-console": 1,
+    "no-unused-vars": 1,
+  },
+
+  "plugins": ["html", "markdown", "react"],
+
+}
