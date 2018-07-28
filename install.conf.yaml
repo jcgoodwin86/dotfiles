@@ -9,6 +9,7 @@
     ~/.hyper.js:
     ~/.config/nvim/init.vim:
     ~/.eslintrc:
+    ~/.vscodestyles.css:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
