@@ -7,7 +7,6 @@
 - link:
     ~/.config/fish/config.fish:
     ~/.hyper.js:
-    ~/.config/nvim/init.vim:
     ~/.eslintrc:
     ~/.vscodestyles.css:
 
