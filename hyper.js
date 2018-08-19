@@ -104,7 +104,10 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyperline", "hyperterm-oceanic-next", "gitrocket"],
+  plugins: ["hyper-nord",
+            "gitrocket",
+            "space-pull",
+          ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
