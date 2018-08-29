@@ -5,10 +5,10 @@
 - clean: ['~']
 
 - link:
-    ~/.config/fish/config.fish:
+    #~/.config/fish/config.fish:
     ~/.hyper.js:
     ~/.eslintrc:
-    ~/.vscodestyles.css:
+    #~/.vscodestyles.css:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
