@@ -9,6 +9,7 @@
     ~/.hyper.js:
     ~/.eslintrc:
     #~/.vscodestyles.css:
+    ~/.zshrc:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
