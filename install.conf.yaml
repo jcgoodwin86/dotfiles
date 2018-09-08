@@ -5,7 +5,6 @@
 - clean: ['~']
 
 - link:
-    #~/.config/fish/config.fish:
     ~/.hyper.js:
     ~/.eslintrc:
     #~/.vscodestyles.css:
