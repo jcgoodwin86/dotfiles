@@ -2,7 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/joe/.oh-my-zsh"
+  if [ $(uname) != "Darwin" ]
+  then
+    export ZSH="/home/joe/.oh-my-zsh"
+  else
+    export ZSH="/Users/joe/.oh-my-zsh"
+  fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
