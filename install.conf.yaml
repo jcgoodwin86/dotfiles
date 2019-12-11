@@ -5,7 +5,7 @@
 - clean: ['~']
 
 - link:
-    ~/.hyper.js:
+    #~/.hyper.js:
     ~/.eslintrc:
     #~/.vscodestyles.css:
     ~/.zshrc:
