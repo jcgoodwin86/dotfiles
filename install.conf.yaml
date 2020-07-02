@@ -1,14 +1,14 @@
 - defaults:
     link:
-        relink: true
+      relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-    ~/.hyper.js:
+    #~/.hyper.js:
     ~/.eslintrc:
     #~/.vscodestyles.css:
     ~/.zshrc:
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
