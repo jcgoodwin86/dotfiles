@@ -1,3 +1,7 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
 # 'brew tap'
 tap "oven-sh/bun"
 tap "pkgxdev/made"
@@ -75,4 +79,5 @@ cask "daisydisk"
 # cask "soundsource"
 # cask "jan"
 # cask "bartender"
-
+EOF
+{{ end -}}
