@@ -110,7 +110,7 @@ ll() {
 }
 
 ls() {
-    eza --color auto --icons "$@" 
+    eza --color auto --icons "$@"
 }
 
 # Enable completion for the functions
@@ -120,6 +120,7 @@ compdef ls=eza
 
 # Alias
 alias ba="brew update && brew upgrade && brew doctor"
+alias gl="git log --oneline --graph --decorate --color"
 
 # source antidote
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh

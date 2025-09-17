@@ -1,7 +1,7 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 # 'brew tap'
 tap "oven-sh/bun"
 tap "pkgxdev/made"
@@ -23,12 +23,14 @@ brew "dust"
 brew "ripgrep"
 brew "lazygit"
 brew "antidote"
+brew "uv"
 
 # 'mas install'
 mas "Klack", id: 6_446_206_067
 mas "Amphetamine", id: 937_984_704
 mas "rcmd", id: 1_596_283_165
 mas "Presentify - Screen Annotation", id: 1_507_246_666
+mas "Portal - Immersive Escapes", id: 1_436_994_560
 mas "HazeOver • Distraction Dimmer", id: 430_798_174
 # mas "Structured - Daily Planner", id: 1_499_199_846
 # mas "one sec | screen time + focus", id: 1_532_875_441
@@ -36,7 +38,6 @@ mas "HazeOver • Distraction Dimmer", id: 430_798_174
 # mas "Photomator - Photo Editor", id: 1_444_636_541
 # mas "Pixelmator Pro", id: 1_289_583_905
 # mas "Toggl Track: Hours & Time Log", id: 1_291_898_086
-mas "Portal - Immersive Escapes", id: 1_436_994_560
 # mas "Affinity Designer 2", id: 1_616_831_348
 # mas "Affinity Photo 2: Image Editor", id: 1_616_822_987
 # mas "Affinity Publisher 2", id: 1_606_941_598
@@ -47,13 +48,19 @@ mas "Portal - Immersive Escapes", id: 1_436_994_560
 # 'brew install --cask'
 # cask_args no_quarantine: true
 
+cask "superwhisper"
+cask "google-drive"
+cask "anytype"
+cask "slack"
+cask "visual-studio-code"
+cask "zen-browser"
+cask "orbstack"
+cask "akiflow"
 cask "windsurf"
 cask "ghostty"
-#cask "epic-games"
 cask "keyboard-maestro"
 cask "jordanbaird-ice"
 cask "zotero"
-# cask "zed"
 cask "affine"
 cask "linear-linear"
 cask "grammarly-desktop"
@@ -62,7 +69,6 @@ cask "heptabase"
 cask "1password"
 cask "1password-cli"
 cask "arc"
-# cask "warp"
 cask "readdle-spark"
 cask "istat-menus"
 cask "todoist"
@@ -70,22 +76,27 @@ cask "obsidian"
 cask "zoom"
 cask "cleanshot"
 cask "nvidia-geforce-now"
-# cask "figma"
 cask "raycast"
-# cask "steam"
-# cask "beeper"
 cask "notion"
+cask "notion-calendar"
 cask "morgen"
 cask "boom-3d"
 cask "bettertouchtool"
-# cask "ollama"
 cask "screen-studio"
 cask "telegram"
 cask "obs"
 cask "lulu"
+cask "daisydisk"
+cask "epic-games"
+cask "ollama"
+cask "zed"
+cask "warp"
+cask "steam"
+# cask "reaper"
+# cask "figma"
+# cask "beeper"
 # cask "devonthink"
 # cask "devonagent"
-cask "daisydisk"
 # cask "ubersicht"
 # cask "soundsource"
 # cask "jan"
