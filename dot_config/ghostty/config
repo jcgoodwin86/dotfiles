@@ -1,4 +1,4 @@
-keybind = global:shift+ctrl+opt+cmd+g=toggle_quick_terminal
+# keybind = global:shift+ctrl+opt+cmd+g=toggle_quick_terminal
 
 theme = Catppuccin Frappe
 
