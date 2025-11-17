@@ -124,3 +124,4 @@ source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
 export PATH=$PATH:$HOME/go/bin
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
