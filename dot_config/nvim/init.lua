@@ -1,60 +1,77 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+-- =============================================================================
+-- Options
+-- =============================================================================
+
 vim.g.mapleader = " "
 vim.o.termguicolors = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+
+-- =============================================================================
+-- Bootstrap lazy.nvim (plugin manager)
+-- =============================================================================
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
+    "git", "clone", "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
+    "--branch=stable", lazypath,
   })
 end
-
 vim.opt.rtp:prepend(lazypath)
 
+-- =============================================================================
+-- Plugins
+-- =============================================================================
+
 require("lazy").setup({
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
+  -- Colorscheme
   {
-    'nvim-telescope/telescope.nvim', version = '*',
-    dependencies = {
-        'nvim-lua/plenary.nvim',
-        -- optional but recommended
-        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    }
-  }
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000, -- load before other plugins
+  },
+
+  -- Fuzzy finder (replaces telescope due to neovim 0.12 input focus bug)
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({
+        winopts = {
+          height = 0.85,
+          width = 0.85,
+          preview = {
+            layout = "horizontal",
+          },
+        },
+      })
+    end,
+  },
+
 })
+
+-- =============================================================================
+-- Colorscheme
+-- =============================================================================
 
 require("catppuccin").setup()
 vim.cmd.colorscheme("catppuccin")
 
-local telescope = require("telescope")
-local builtin = require("telescope.builtin")
+-- =============================================================================
+-- Keymaps
+-- =============================================================================
 
-telescope.setup({
-  extensions = {
-    fzf = {
-      fuzzy = true,
-      override_generic_sorter = true,
-      override_file_sorter = true,
-    }
-  }
-})
+local fzf = require("fzf-lua")
 
-pcall(telescope.load_extension, "fzf")
-
+-- Find files (including hidden and git-ignored)
 vim.keymap.set("n", "<C-p>", function()
-  builtin.find_files({
-    hidden = true,
-    no_ignore = true,
-  })
+  fzf.files({ hidden = true, no_ignore = true })
 end, { desc = "Find files" })
 
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
+-- Live grep across project
+vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live grep" })
