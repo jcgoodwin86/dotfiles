@@ -33,15 +33,20 @@ local opts = {}
 
 local plugins = {
 
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    'nvim-telescope/telescope.nvim', version = '0.2.2',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        -- optional but recommended
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    }
+  }
 
 }
 
 require("lazy").setup(plugins, opts)
---require catppuccin
 require("catppuccin").setup()
-
-
 --set the colorscheme to it!
 vim.cmd.colorscheme "catppuccin"
 
