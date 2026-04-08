@@ -1,5 +1,5 @@
 keybind = global:shift+ctrl+opt+cmd+g=toggle_quick_terminal
-term = xterm-256color
+
 theme = Catppuccin Frappe
 
 window-padding-x = 50
