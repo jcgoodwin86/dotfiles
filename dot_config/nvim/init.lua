@@ -26,7 +26,7 @@ require("lazy").setup({
     dependencies = {
         'nvim-lua/plenary.nvim',
         -- optional but recommended
-        -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     }
   }
 })
@@ -37,7 +37,7 @@ vim.cmd.colorscheme("catppuccin")
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
--- pcall(telescope.load_extension, "fzf")
+pcall(telescope.load_extension, "fzf")
 
 vim.keymap.set("n", "<C-p>", function()
   builtin.find_files({
