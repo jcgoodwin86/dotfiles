@@ -21,15 +21,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
   {
-    "nvim-telescope/telescope.nvim",
-    tag = "*",
+    'nvim-telescope/telescope.nvim', version = '*',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-  },
+        'nvim-lua/plenary.nvim',
+        -- optional but recommended
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    }
+  }
 })
 
 require("catppuccin").setup()
