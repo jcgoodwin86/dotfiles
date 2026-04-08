@@ -38,6 +38,16 @@ vim.cmd.colorscheme("catppuccin")
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
+telescope.setup({
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+    }
+  }
+})
+
 pcall(telescope.load_extension, "fzf")
 
 vim.keymap.set("n", "<C-p>", function()
