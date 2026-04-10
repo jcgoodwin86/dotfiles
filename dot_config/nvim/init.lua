@@ -80,3 +80,15 @@ vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live grep" })
 
 -- Search lines in current buffer
 vim.keymap.set("n", "<leader>fb", fzf.blines, { desc = "Search buffer" })
+
+local config = require("nvim-treesitter.configs")
+
+config.setup({
+
+  ensure_installed = {"lua", "javascript"},
+
+  highlight = { enable = true },
+
+  indent = { enable = true }
+
+})
