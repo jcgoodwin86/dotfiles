@@ -68,10 +68,13 @@ vim.cmd.colorscheme("catppuccin")
 
 local fzf = require("fzf-lua")
 
--- Find files (including hidden and git-ignored)
+-- Find files by name across project
 vim.keymap.set("n", "<C-p>", function()
   fzf.files({ hidden = true, no_ignore = true })
 end, { desc = "Find files" })
 
--- Live grep across project
+-- Search text across entire project
 vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live grep" })
+
+-- Search lines in current buffer
+vim.keymap.set("n", "<leader>fb", fzf.blines, { desc = "Search buffer" })
