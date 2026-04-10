@@ -56,16 +56,16 @@ require("lazy").setup({
   -- Syntax highlighting and indentation
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.config").setup({
+      require("nvim-treesitter.configs").setup({
         ensure_installed = { "lua", "javascript", "go", "yaml", "json", "bash" },
         highlight = { enable = true },
         indent = { enable = true },
       })
     end,
   },
-
 })
 
 -- =============================================================================
