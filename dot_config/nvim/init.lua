@@ -58,6 +58,16 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.templ = {
+        install_info = {
+          url = "https://github.com/vrischmann/tree-sitter-templ",
+          files = { "src/parser.c", "src/scanner.c" },
+          branch = "master",
+      },
+      filetype = "templ",
+    }
+
       require("nvim-treesitter.config").setup({
         ensure_installed = { "lua", "javascript", "go", "yaml", "json", "bash", "templ" },
         highlight = { enable = true },
