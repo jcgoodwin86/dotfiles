@@ -75,7 +75,18 @@ require("lazy").setup({
       indent = { enable = true },
     })
   end,
-},
+  },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    }
+
+  }
 })
 
 vim.filetype.add({ extension = { templ = "templ" } })
