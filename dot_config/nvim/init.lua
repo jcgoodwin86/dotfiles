@@ -76,17 +76,29 @@ require("lazy").setup({
     })
   end,
   },
-
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-
-  }
+  -- File explorer
+{
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+  },
+  config = function()
+    require("neo-tree").setup({
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function(file_path)
+            -- close neo-tree when a file is opened
+            require("neo-tree.command").execute({ action = "close" })
+          end,
+        },
+      },
+    })
+  end,
+},
 })
 
 vim.filetype.add({ extension = { templ = "templ" } })
@@ -114,3 +126,6 @@ vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live grep" })
 
 -- Search lines in current buffer only
 vim.keymap.set("n", "<leader>fb", fzf.blines, { desc = "Search buffer" })
+
+-- Toggle file explorer
+vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal float<CR>", { desc = "File explorer" })
