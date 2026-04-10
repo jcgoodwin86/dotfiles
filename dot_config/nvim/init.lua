@@ -33,7 +33,7 @@ require("lazy").setup({
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000, -- load before other plugins
+    priority = 1000,
   },
 
   -- Fuzzy finder (replaces telescope due to neovim 0.12 input focus bug)
@@ -53,7 +53,18 @@ require("lazy").setup({
     end,
   },
 
-  {"nvim-treesitter/nvim-treesitter", build= ":TSUpdate"}
+  -- Syntax highlighting and indentation
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "lua", "javascript" },
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
+  },
 
 })
 
@@ -70,25 +81,13 @@ vim.cmd.colorscheme("catppuccin")
 
 local fzf = require("fzf-lua")
 
--- Find files by name across project
+-- Find files by name across project (including hidden and git-ignored)
 vim.keymap.set("n", "<C-p>", function()
   fzf.files({ hidden = true, no_ignore = true })
 end, { desc = "Find files" })
 
--- Search text across entire project
+-- Search text contents across entire project
 vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "Live grep" })
 
--- Search lines in current buffer
+-- Search lines in current buffer only
 vim.keymap.set("n", "<leader>fb", fzf.blines, { desc = "Search buffer" })
-
-local config = require("nvim-treesitter.configs")
-
-config.setup({
-
-  ensure_installed = {"lua", "javascript"},
-
-  highlight = { enable = true },
-
-  indent = { enable = true }
-
-})
