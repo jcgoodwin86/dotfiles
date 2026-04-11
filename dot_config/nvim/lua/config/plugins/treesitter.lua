@@ -9,24 +9,51 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
     config = function()
-      -- Register templ parser manually (not in official registry)
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-      parser_config.templ = {
-        install_info = {
-          url = "https://github.com/vrischmann/tree-sitter-templ",
-          files = { "src/parser.c", "src/scanner.c" },
-          branch = "master",
-        },
-        filetype = "templ",
-      }
+      local ts = require("nvim-treesitter")
 
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "javascript", "go", "yaml", "json", "bash", "templ" },
-        highlight = { enable = true },
-        indent = { enable = true },
+      ts.setup({
+        install_dir = vim.fn.stdpath("data") .. "/site",
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TSUpdate",
+        callback = function()
+          require("nvim-treesitter.parsers").templ = {
+            install_info = {
+              url = "https://github.com/vrischmann/tree-sitter-templ",
+              files = { "src/parser.c", "src/scanner.c" },
+              branch = "master",
+            },
+          }
+        end,
+      })
+
+      vim.treesitter.language.register("templ", { "templ" })
+
+      ts.install({
+        "lua",
+        "javascript",
+        "go",
+        "yaml",
+        "json",
+        "bash",
+        "templ",
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "lua", "javascript", "go", "yaml", "json", "sh", "templ" },
+        callback = function(args)
+          vim.treesitter.start(args.buf)
+
+          local ok = pcall(vim.treesitter.query.get, vim.bo[args.buf].filetype, "indents")
+          if ok then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
       })
     end,
   },
