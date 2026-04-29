@@ -126,6 +126,7 @@ antidote load
 export PATH=$PATH:$HOME/go/bin
 export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 export PATH="/Users/joe/.local/bin:$PATH"
+export PATH="/Users/joe/.rustup/toolchains/stable-aarch64-apple-darwin/bin:$PATH"
 
 export EDITOR=nvim
 export VISUAL=nvim
