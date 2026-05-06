@@ -63,6 +63,10 @@ ctrl + alt + cmd - e : yabai -m space --layout bsp
 ctrl + alt + cmd - r : yabai -m space --layout stack
 ctrl + alt + cmd - b : yabai -m space --balance
 
+# swap stack order
+shift + ctrl + alt + cmd - j : yabai -m window --swap stack.next
+shift + ctrl + alt + cmd - k : yabai -m window --swap stack.prev
+
 # ========================
 # MIRROR
 # ========================
