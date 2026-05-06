@@ -1,72 +1,76 @@
 # ========================
-# FOCUS WINDOWS (vim style)
+# Hyper = Caps Lock
+# Caps Lock sends: ctrl + alt + cmd
 # ========================
-ctrl + alt + shift + cmd - h : yabai -m window --focus west
-ctrl + alt + shift + cmd - j : yabai -m window --focus south
-ctrl + alt + shift + cmd - k : yabai -m window --focus north
-ctrl + alt + shift + cmd - l : yabai -m window --focus east
 
 # ========================
-# MOVE WINDOWS
+# FOCUS WINDOWS
+# Hyper + h/j/k/l
 # ========================
-shift + ctrl + alt + shift + cmd - h : yabai -m window --swap west
-shift + ctrl + alt + shift + cmd - j : yabai -m window --swap south
-shift + ctrl + alt + shift + cmd - k : yabai -m window --swap north
-shift + ctrl + alt + shift + cmd - l : yabai -m window --swap east
+ctrl + alt + cmd - h : yabai -m window --focus west
+ctrl + alt + cmd - j : yabai -m window --focus south
+ctrl + alt + cmd - k : yabai -m window --focus north
+ctrl + alt + cmd - l : yabai -m window --focus east
+
+# ========================
+# MOVE / SWAP WINDOWS
+# Hyper + Shift + h/j/k/l
+# ========================
+shift + ctrl + alt + cmd - h : yabai -m window --swap west
+shift + ctrl + alt + cmd - j : yabai -m window --swap south
+shift + ctrl + alt + cmd - k : yabai -m window --swap north
+shift + ctrl + alt + cmd - l : yabai -m window --swap east
 
 # ========================
 # RESIZE WINDOWS
+# Hyper + arrows
 # ========================
-ctrl + alt + shift + cmd - left  : yabai -m window --resize left:-50:0
-ctrl + alt + shift + cmd - right : yabai -m window --resize right:50:0
-ctrl + alt + shift + cmd - down  : yabai -m window --resize bottom:0:50
-ctrl + alt + shift + cmd - up    : yabai -m window --resize top:0:-50
+ctrl + alt + cmd - left  : yabai -m window --resize left:-50:0
+ctrl + alt + cmd - right : yabai -m window --resize right:50:0
+ctrl + alt + cmd - down  : yabai -m window --resize bottom:0:50
+ctrl + alt + cmd - up    : yabai -m window --resize top:0:-50
 
 # ========================
-# FLOAT / FULLSCREEN
+# FLOAT / FULLSCREEN / CLOSE
 # ========================
-ctrl + alt + shift + cmd - f      : yabai -m window --toggle float
-ctrl + alt + shift + cmd - return : yabai -m window --toggle zoom-fullscreen
+ctrl + alt + cmd - f      : yabai -m window --toggle float
+ctrl + alt + cmd - return : yabai -m window --toggle zoom-fullscreen
+ctrl + alt + cmd - q      : yabai -m window --close
 
 # ========================
-# CLOSE WINDOW
+# SPACES
+# Hyper + number = focus space
+# Hyper + Shift + number = move window there and follow
 # ========================
-ctrl + alt + shift + cmd - q : yabai -m window --close
+ctrl + alt + cmd - 1 : yabai -m space --focus 1
+ctrl + alt + cmd - 2 : yabai -m space --focus 2
+ctrl + alt + cmd - 3 : yabai -m space --focus 3
+ctrl + alt + cmd - 4 : yabai -m space --focus 4
+ctrl + alt + cmd - 5 : yabai -m space --focus 5
+ctrl + alt + cmd - 6 : yabai -m space --focus 6
+
+shift + ctrl + alt + cmd - 1 : yabai -m window --space 1; yabai -m space --focus 1
+shift + ctrl + alt + cmd - 2 : yabai -m window --space 2; yabai -m space --focus 2
+shift + ctrl + alt + cmd - 3 : yabai -m window --space 3; yabai -m space --focus 3
+shift + ctrl + alt + cmd - 4 : yabai -m window --space 4; yabai -m space --focus 4
+shift + ctrl + alt + cmd - 5 : yabai -m window --space 5; yabai -m space --focus 5
+shift + ctrl + alt + cmd - 6 : yabai -m window --space 6; yabai -m space --focus 6
 
 # ========================
-# SPACES (1–6)
+# LAYOUT
 # ========================
-ctrl + alt + shift + cmd - 1 : yabai -m space --focus 1
-ctrl + alt + shift + cmd - 2 : yabai -m space --focus 2
-ctrl + alt + shift + cmd - 3 : yabai -m space --focus 3
-ctrl + alt + shift + cmd - 4 : yabai -m space --focus 4
-ctrl + alt + shift + cmd - 5 : yabai -m space --focus 5
-ctrl + alt + shift + cmd - 6 : yabai -m space --focus 6
+ctrl + alt + cmd - e : yabai -m space --layout bsp
+ctrl + alt + cmd - r : yabai -m space --layout stack
+ctrl + alt + cmd - b : yabai -m space --balance
 
 # ========================
-# MOVE WINDOW TO SPACE
+# MIRROR
 # ========================
-shift + ctrl + alt + shift + cmd - 1 : yabai -m window --space 1
-shift + ctrl + alt + shift + cmd - 2 : yabai -m window --space 2
-shift + ctrl + alt + shift + cmd - 3 : yabai -m window --space 3
-shift + ctrl + alt + shift + cmd - 4 : yabai -m window --space 4
-shift + ctrl + alt + shift + cmd - 5 : yabai -m window --space 5
-shift + ctrl + alt + shift + cmd - 6 : yabai -m window --space 6
+ctrl + alt + cmd - m         : yabai -m space --mirror x-axis
+shift + ctrl + alt + cmd - m : yabai -m space --mirror y-axis
 
 # ========================
-# LAYOUT CONTROL
+# TEST
+# Hyper + t opens Terminal
 # ========================
-ctrl + alt + shift + cmd - e : yabai -m space --layout bsp
-ctrl + alt + shift + cmd - r : yabai -m space --layout stack
-
-# ========================
-# BALANCE / MIRROR
-# ========================
-ctrl + alt + shift + cmd - b : yabai -m space --balance
-ctrl + alt + shift + cmd - m : yabai -m space --mirror x-axis
-shift + ctrl + alt + shift + cmd - m : yabai -m space --mirror y-axis
-
-# ========================
-# TEST (important)
-# ========================
-ctrl + alt + shift + cmd - t : open -a Terminal
+ctrl + alt + cmd - t : open -a Terminal
