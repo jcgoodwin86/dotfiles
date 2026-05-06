@@ -75,3 +75,4 @@ hyper + shift - m : yabai -m space --mirror y-axis
 # RESTART YABAI
 # ========================
 hyper - backspace : yabai --restart-service
+ctrl + shift + cmd + alt - t : open -a Terminal
