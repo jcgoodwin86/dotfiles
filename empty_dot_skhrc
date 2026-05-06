@@ -74,4 +74,4 @@ hyper + shift - m : yabai -m space --mirror y-axis
 # ========================
 # RESTART YABAI
 # ========================
-hyper - backspace : brew services restart yabai
+hyper - backspace : yabai --restart-service
